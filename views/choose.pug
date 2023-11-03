@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  - var image_names = ["audi.jpg", "benz.jpg", "bmw.jpg", "ferrari.jpg", "porsche.jpg"]
+  - var chosen_images = []
+  - for (var i = 0; i <3; i++)
+    - var randomIndex = Math.floor(Math.random() * 5)
+    - var image = image_names[randomIndex]
+    img(src=`/images/${image}`, alt=`${image}`, height="300", width="300")

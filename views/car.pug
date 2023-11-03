@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  -let results = [{ model: "BMW", year: 2012 },{ model: "Porsche", year: 2001 },{ model: "Benz", year: 2020 }]
+    .container-fluid
+      .row
+        each car,index in results
+          .col-sm-2(onclick=`buy(${index})`)
+            p Model: #{car.model}
+            p Year: #{car.year}
+  script.
+      function buy(index) {
+        alert(`You purchased item ${index}.`);
+      }          
+    

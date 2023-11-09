@@ -8,9 +8,9 @@ var car_controller = require('../controllers/car');
 router.get('/', api_controller.api);
 /// car ROUTES ///
 // POST request for creating a car.
-router.post('/cars', car_controller.car_create_post);
+router.post('/car', car_controller.car_create_post);
 // DELETE request to delete car.
-router.delete('/cars/:id', car_controller.car_delete);
+router.delete('/car/:id', car_controller.car_delete);
 // PUT request to update car.
 router.put('/car/:id', car_controller.car_update_put);
 // GET request for one car.

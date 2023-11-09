@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1= title
-  -let results = [{ model: "BMW", year: 2012 },{ model: "Porsche", year: 2001 },{ model: "Benz", year: 2020 }]
+  -let results = carslist
     .container-fluid
       .row
         each car,index in results

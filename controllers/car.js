@@ -19,3 +19,16 @@ res.send('NOT IMPLEMENTED: car delete DELETE ' + req.params.id);
 exports.car_update_put = function(req, res) {
 res.send('NOT IMPLEMENTED: car update PUT' + req.params.id);
 };
+
+// List of all car
+exports.car_list = async function(req, res) {
+    try{
+    thecar = await car.find();
+    res.send(thecar);
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+    };
+    

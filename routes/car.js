@@ -2,6 +2,7 @@ var express = require('express');
 const car_controlers= require('../controllers/car');
 const cardetail_controller=require('../controllers/cardetail');
 const carcreate_controller=require('../controllers/carcreate');
+const carupdate_controller=require('../controllers/carupdate');
 
 var router = express.Router();
 /* GET cars */
@@ -22,10 +23,17 @@ catch(e){
 /* GET create car page */
 
 try{
-router.get('/create', carcreate_controller.car_create_Page);    }
-    catch(e){
-        console.error();
-    }
+router.get('/create', carcreate_controller.car_create_Page);   
+ }
+catch(e){
+console.error();
+}
+/* GET update car page */
+try{
+    router.get('/update', carupdate_controller.car_update_Page)}
+catch(e){
+     console.error();
+}
 
 module.exports = router;
 

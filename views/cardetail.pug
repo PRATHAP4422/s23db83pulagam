@@ -1,20 +1,27 @@
 extends layout
 block content
-  h1= title
-  - let carid = toShow._id
-  - let model = toShow.model
-  - let year = toShow.year
-  - let price = toShow.price
-  div
-    div.row
-      div(class='carAttr mr-3') car ID is:
-      div #{carid}
-    div.row
-      div(class='carAttr mr-3') car Model is:
-      div #{model}
-    div.row
-      div(class='carAttr mr-3') car Year is:
-      div #{price}
-    div.row
-      div(class='carAttr mr-3') car Price is:
-      div #{year}
+  h1(class='page-title')= title
+  if (toShow == null)
+    h2 No instance to delete
+  else
+    - let carid = toShow._id
+    - let model = toShow.model
+    - let year = toShow.year
+    - let price = toShow.price
+    div.container
+      div.car-details
+        div.row
+          span(class='carAttr') Car ID:   
+          span(class='carValue') #{carid}
+
+        div.row
+          span(class='carAttr') Car Model:
+          span(class='carValue') #{model}
+
+        div.row
+          span(class='carAttr') Car Year:
+          span(class='carValue') #{year}
+
+        div.row
+          span(class='carAttr') Car Price:
+          span(class='carValue') #{price}

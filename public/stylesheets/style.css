@@ -8,7 +8,35 @@ a {
 }
 
 .carAttr {
-  background-color: aquamarine;
+  background-color: burlywood;
   width: 120px;
-  }
+}
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+}
+
+.car-details {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.row {
+  display: flex;
+  margin-bottom: 15px;
+}
+.page-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.carValue {
+  color: #007bff;
+  flex: 2;
+  display: flex;
+  align-items: center; 
+}
+
   

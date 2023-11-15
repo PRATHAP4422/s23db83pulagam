@@ -8,6 +8,10 @@ a {
 }
 
 .carAttr {
+  background-color: aquamarine;
+  width: 120px;
+}
+.carAttribute {
   background-color: burlywood;
   width: 120px;
 }

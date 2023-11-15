@@ -3,6 +3,8 @@ const car_controlers= require('../controllers/car');
 const cardetail_controller=require('../controllers/cardetail');
 const carcreate_controller=require('../controllers/carcreate');
 const carupdate_controller=require('../controllers/carupdate');
+const cardelete_controller=require('../controllers/cardelete');
+
 
 var router = express.Router();
 /* GET cars */
@@ -31,6 +33,13 @@ console.error();
 /* GET update car page */
 try{
     router.get('/update', carupdate_controller.car_update_Page)}
+catch(e){
+     console.error();
+}
+/* GET delete car page */
+try{
+    router.get('/delete', cardelete_controller.car_delete_Page);
+}
 catch(e){
      console.error();
 }

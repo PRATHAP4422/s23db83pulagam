@@ -25,9 +25,9 @@ var Car = require('./models/car');
 async function recreateDB(){
 // Delete everything
 await Car.deleteMany();
-let instance1 = new Car({model:"Bmw", year:2022});
-let instance2 = new Car({model:"Audi", year:2023});
-let instance3 = new Car({model:"Benz", year:2020});
+let instance1 = new Car({model:"Bmw", year:2022, price:5000000});
+let instance2 = new Car({model:"Audi", year:2023, price:6000000});
+let instance3 = new Car({model:"Benz", year:2020, price:7000000});
 
 instance1.save().then(doc=>{
 console.log("First object saved")}

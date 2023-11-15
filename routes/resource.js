@@ -18,12 +18,3 @@ router.get('/car/:id', car_controller.car_detail);
 // GET request for list of all car items.
 router.get('/car', car_controller.car_list);
 module.exports = router;
-// API for our resources
-exports.api = function(req, res) {
-res.write('[');
-res.write('{"resource":"car", ');
-res.write(' "verbs":["GET","PUT", "DELETE"] ');
-res.write('}');
-res.write(']')
-res.send();
-};

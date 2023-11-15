@@ -8,4 +8,5 @@ Class : Car
 
 Attributes : 
     Model : String
-    Year : int
+    Year : Number
+    Price: Number

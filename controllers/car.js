@@ -24,6 +24,7 @@ exports.car_create_post =async function(req, res) {
     // {"car_type":"goat", "cost":12, "size":"large"}
     document.model = req.body.model;
     document.year = req.body.year;
+    document.price = req.body.price;
     try{
     let result = await document.save();
     res.send(result);
@@ -36,8 +37,16 @@ exports.car_create_post =async function(req, res) {
     };
     
 // Handle car delete form on DELETE.
-exports.car_delete = function(req, res) {
-res.send('NOT IMPLEMENTED: car delete DELETE ' + req.params.id);
+exports.car_delete = async function(req, res) {
+console.log("delete " + req.params.id)
+try {
+result = await car.findByIdAndDelete( req.params.id)
+console.log("Removed " + result)
+res.send(result)
+} catch (err) {
+res.status(500)
+res.send(`{"error": Error deleting ${err}}`);
+}
 };
 // Handle car update form on PUT.
 exports.car_update_put =async function(req, res) {
@@ -48,6 +57,7 @@ exports.car_update_put =async function(req, res) {
     // Do updates of properties
     if(req.body.model) toUpdate.model = req.body.model;
     if(req.body.year) toUpdate.year = req.body.year;
+    if(req.body.price) toUpdate.price = req.body.price;
     let result = await toUpdate.save();
     console.log("Sucess " + result)
     res.send(result)

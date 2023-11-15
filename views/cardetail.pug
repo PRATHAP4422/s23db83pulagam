@@ -1,0 +1,20 @@
+extends layout
+block content
+  h1= title
+  - let carid = toShow._id
+  - let model = toShow.model
+  - let year = toShow.year
+  - let price = toShow.price
+  div
+    div.row
+      div(class='carAttr mr-3') car ID is:
+      div #{carid}
+    div.row
+      div(class='carAttr mr-3') car Model is:
+      div #{model}
+    div.row
+      div(class='carAttr mr-3') car Year is:
+      div #{price}
+    div.row
+      div(class='carAttr mr-3') car Price is:
+      div #{year}

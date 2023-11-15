@@ -1,6 +1,8 @@
 var express = require('express');
 const car_controlers= require('../controllers/car');
 const cardetail_controller=require('../controllers/cardetail');
+const carcreate_controller=require('../controllers/carcreate');
+
 var router = express.Router();
 /* GET cars */
 try{
@@ -17,7 +19,13 @@ router.get('/detail', cardetail_controller.car_view_one_Page);
 catch(e){
     console.error();
 }
+/* GET create car page */
 
+try{
+router.get('/create', carcreate_controller.car_create_Page);    }
+    catch(e){
+        console.error();
+    }
 
 module.exports = router;
 

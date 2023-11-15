@@ -1,4 +1,5 @@
 // Handle a show one view with id specified by query
+var car=require('../models/car');
 exports.car_view_one_Page = async function(req, res) {
     console.log("single view for id " + req.query.id)
     try{

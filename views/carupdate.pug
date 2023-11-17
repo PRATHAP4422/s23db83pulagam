@@ -1,4 +1,5 @@
 extends layout
+
 block content
     h1= title
     if (toShow == null)
@@ -9,34 +10,32 @@ block content
         - let year = toShow.year
         - let price = toShow.price
         div.row(class='mb-2')
-        div.mr-1 ID is
-        div #{id}
-        - let actionid = "/resource/car/" + id
-        form(id='carForm', action=actionid, method="PUT")
-        div.form-group
-            label.carAttr(for='model') car model
-            input#model(type='text', name='model', value=model)
-        div.form-group
-            label.carAttr(for='year') car year
-            input#year(type='text', name='year', value=year)
-        div.form-group
-            label.carAttr(for='price') car price
-            input#price(type='text', name='price', value=price)
-        input(type="submit")
+            div.mr-1 ID is
+            div #{id}
+        -let actionid = "/resource/car/" + id
+        form(id='carForm', action=actionid, method='PUT') 
+            div.form-group
+                label.carAttr(for='model') car model
+                input#model(type='text', name='model', value=model)
+            div.form-group
+                label.carAttr(for='year') car year
+                input#year(type='text', name='year', value=year)
+            div.form-group
+                label.carAttr(for='price') car price
+                input#price(type='text', name='price', value=price)
+            input(type="submit")
         script.
-        document.forms['carForm'].addEventListener('submit', (event) => {
-            event.preventDefault();
-            // TODO do something here to show user that form is being submitted
-            fetch(event.target.action, {
-            method: 'PUT',
-            body: new URLSearchParams(new FormData(event.target)) // event.target is the form
-            }).then((resp) => {
-            return resp.json(); // or resp.text() or whatever the server sends
-            }).then((body) => {
-            alert("Update succeded")
-            // TODO handle body
-            }).catch((error) => {
-            // TODO handle error
-            alert("Update failed " + error )
+            document.forms['carForm'].addEventListener('submit', (event) => {
+                event.preventDefault();
+
+                fetch(event.target.action, {
+                    method: 'PUT',
+                    body: new URLSearchParams(new FormData(event.target))
+                }).then((resp) => {
+                    return resp.json();
+                }).then((body) => {
+                    alert("Update succeeded");
+                }).catch((error) => {
+                    alert("Update failed: " + error);
+                });
             });
-        });

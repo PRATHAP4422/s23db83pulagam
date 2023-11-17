@@ -3,15 +3,20 @@ extends layout
 block content
   h1= title
   -let results = carslist
-    .container-fluid
-      .row
+    div(class="container-fluid")
+      div(class="row m-1")
         each car,index in results
-          .col-sm-2(onclick=`buy(${index})`)
+          - let destination = `dispatch(\"/car/update?id=${car._id}\")`
+          div(class="col-sm-2 m-1",onclick=`buy(${index})`)
             p Model: #{car.model}
             p Year: #{car.year}
             p Price: #{car.price}
+            button.btn( class="btn-primary ml-1", onclick= destination) Update
   script.
       function buy(index) {
         alert(`You purchased item ${index}.`);
-      }          
+      }  
+      function dispatch(path){
+        window.location.href=path;
+      }        
     

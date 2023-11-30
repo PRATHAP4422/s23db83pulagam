@@ -2,16 +2,23 @@ extends layout
 
 block content
   h1= title
+  - let createbtn = `dispatch(\"/car/create")`
+  button.btn( class="btn-primary ml-1", onclick= createbtn) Create
   -let results = carslist
     div(class="container-fluid")
       div(class="row m-1")
         each car,index in results
           - let destination = `dispatch(\"/car/update?id=${car._id}\")`
+          - let detailbtn = `dispatch(\"/car/detail?id=${car._id}\")`
+          - let deletebtn = `dispatch(\"/car/delete?id=${car._id}\")`
           div(class="col-sm-2 m-1",onclick=`buy(${index})`)
             p Model: #{car.model}
             p Year: #{car.year}
             p Price: #{car.price}
-            button.btn( class="btn-primary ml-1", onclick= destination) Update
+            button.btn( class="btn-info ml-1", onclick= destination) Update
+            button.btn( class="btn-secondary ml-2", onclick= detailbtn) Detail
+            button.btn( class="btn-warning ml-3", onclick= deletebtn) Delete
+
   script.
       function buy(index) {
         alert(`You purchased item ${index}.`);

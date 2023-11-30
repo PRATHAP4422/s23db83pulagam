@@ -5,44 +5,31 @@ const carcreate_controller=require('../controllers/carcreate');
 const carupdate_controller=require('../controllers/carupdate');
 const cardelete_controller=require('../controllers/cardelete');
 
-
+// A little function to check if we have an authorized user and continue on
+//or
+// redirect to login.
+const secured = (req, res, next) => {
+if (req.user){
+return next();
+}
+res.redirect("/login");
+}
 var router = express.Router();
 /* GET cars */
-try{
 router.get('/', car_controlers.car_view_all_Page );
-}
-catch(e){
-    console.error();
-}
+
 
 /* GET detail car page */
-try{
 router.get('/detail', cardetail_controller.car_view_one_Page);
-}
-catch(e){
-    console.error();
-}
 /* GET create car page */
-
-try{
 router.get('/create', carcreate_controller.car_create_Page);   
- }
-catch(e){
-console.error();
-}
+ 
 /* GET update car page */
-try{
-    router.get('/update', carupdate_controller.car_update_Page)}
-catch(e){
-     console.error();
-}
+    router.get('/update',secured, carupdate_controller.car_update_Page);
+
 /* GET delete car page */
-try{
     router.get('/delete', cardelete_controller.car_delete_Page);
-}
-catch(e){
-     console.error();
-}
+
 
 module.exports = router;
 

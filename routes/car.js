@@ -22,13 +22,13 @@ router.get('/', car_controlers.car_view_all_Page );
 /* GET detail car page */
 router.get('/detail', cardetail_controller.car_view_one_Page);
 /* GET create car page */
-router.get('/create', carcreate_controller.car_create_Page);   
+router.get('/create',secured, carcreate_controller.car_create_Page);   
  
 /* GET update car page */
     router.get('/update',secured, carupdate_controller.car_update_Page);
 
 /* GET delete car page */
-    router.get('/delete', cardelete_controller.car_delete_Page);
+    router.get('/delete',secured, cardelete_controller.car_delete_Page);
 
 
 module.exports = router;
